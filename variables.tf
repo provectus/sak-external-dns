@@ -69,3 +69,10 @@ variable "vpc_id" {
   default     = null
   description = "An ID of the existing AWS VPC"
 }
+
+
+variable "enable_cloudtrail_logging" {
+  type        = bool
+  description = "Enable cloudtrail by changing this to true"
+  default     = false
+}
