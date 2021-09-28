@@ -6,14 +6,20 @@ module external_dns {
   cluster_name = module.kubernetes.cluster_name
 }
 ```
+## Requirements
+
+```
+terraform >= 0.15
+ ```
+
 ## Providers
 
 | Name | Version |
 |------|---------|
-| aws | n/a |
-| helm | n/a |
-| kubernetes | n/a |
-| local | n/a |
+| aws | >= 3.0 |
+| helm | >= 1.0 |
+| kubernetes | >= 1.11 |
+| local | >=2.1.0 |
 
 ## Inputs
 
