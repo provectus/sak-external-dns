@@ -2,7 +2,7 @@
 ## Example
 ``` hcl
 module external_dns {
-  source       = "git::https://github.com/provectus/swiss-army-kube.git//modules/system/external-dns"
+  source       = "git::https://github.com/provectus/sak-external-dns"
   cluster_name = module.kubernetes.cluster_name
 }
 ```
