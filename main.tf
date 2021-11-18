@@ -56,10 +56,6 @@ resource "aws_route53_record" "ns" {
 }
 
 resource "aws_route53_zone" "public" {
-  depends_on = [
-    var.module_depends_on,
-  ]
-
   count = var.aws_private ? 0 : length(var.hostedzones)
   name  = element(var.hostedzones, count.index)
 
@@ -68,9 +64,6 @@ resource "aws_route53_zone" "public" {
 }
 
 resource "aws_route53_zone" "private" {
-  depends_on = [
-    var.module_depends_on,
-  ]
   count = var.aws_private ? length(var.hostedzones) : 0
   name  = element(var.hostedzones, count.index)
   vpc {

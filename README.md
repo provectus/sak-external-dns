@@ -2,8 +2,10 @@
 ## Example
 ``` hcl
 module external_dns {
-  source       = "git::https://github.com/provectus/swiss-army-kube.git//modules/system/external-dns"
+  source       = "github.com/provectus/sak-external-dns"
   cluster_name = module.kubernetes.cluster_name
+  argocd       = module.argocd.state
+  hostedzones  = ["your.hosted.zones"]     # Provide your hosted zones (description in Input section)
 }
 ```
 ## Requirements
@@ -31,6 +33,7 @@ terraform >= 0.15
 | conf | A set of parameters to pass to Nginx Ingress Controller chart | `map` | `{}` | no |
 | domains | A list of domains to use | `list` | `[]` | no |
 | mainzoneid | An ID of the root Route53 zone for creating sub-domains | `string` | `""` | no |
+| hostedzones | A list of Route53 hosted zones domains to create, need to provide a list of FQDN strings | `string` | `[]` | yes |
 | module\_depends\_on | A list of explicit dependencies for the module | `list` | `[]` | no |
 | namespace | A name of the existing namespace | `string` | `"kube-system"` | no |
 | namespace\_name | A name of namespace for creating | `string` | `"external-dns"` | no |
