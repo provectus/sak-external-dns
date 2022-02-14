@@ -39,6 +39,11 @@ resource "helm_release" "this" {
   }
 }
 
+data "aws_route53_zone" "main" {
+  count   = var.mainzoneid == "" ? 0 : 1
+  zone_id = var.mainzoneid
+}
+
 resource "aws_route53_record" "ns" {
   depends_on = [
     var.module_depends_on,
@@ -107,7 +112,7 @@ resource "aws_iam_policy" "this" {
             "route53:ListResourceRecordSets"
           ],
           Resource = formatlist("arn:aws:route53:::hostedzone/%s",
-          concat(aws_route53_zone.public.*.zone_id, aws_route53_zone.private.*.zone_id))
+          concat(aws_route53_zone.public.*.zone_id, aws_route53_zone.private.*.zone_id, var.mainzoneid == "" ? [] : [var.mainzoneid]))
         },
         {
           Effect = "Allow",
@@ -147,7 +152,7 @@ locals {
     "serviceAccount.annotations.eks\\.amazonaws\\.com/role-arn" = module.iam_assumable_role_admin.this_iam_role_arn
     },
     {
-      for i, zone in tolist(var.hostedzones) :
+      for i, zone in concat(var.hostedzones, data.aws_route53_zone.main.*.name) :
       "domainFilters[${i}]" => zone
     }
   )
