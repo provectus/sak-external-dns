@@ -148,8 +148,29 @@ locals {
     "resources.limits.memory"                                   = "300Mi",
     "resources.requests.cpu"                                    = "100m",
     "resources.requests.memory"                                 = "300Mi",
-    "aws.region"                                                = data.aws_region.current.name
-    "serviceAccount.annotations.eks\\.amazonaws\\.com/role-arn" = module.iam_assumable_role_admin.this_iam_role_arn
+    "aws.region"                                                = data.aws_region.current.name,
+    "serviceAccount.annotations.eks\\.amazonaws\\.com/role-arn" = module.iam_assumable_role_admin.this_iam_role_arn,
+    "livenessProbe.enabled" = var.livenessProbe_enabled,
+    "livenessProbe.initialDelaySeconds" = var.livenessProbe_initialDelaySeconds,
+    "livenessProbe.periodSeconds" = var.livenessProbe_periodSeconds,
+    "livenessProbe.timeoutSeconds" = var.livenessProbe_timeoutSeconds,
+    "livenessProbe.failureThreshold" = var.livenessProbe_failureThreshold,
+    "livenessProbe.successThreshold" = var.livenessProbe_successThreshold,
+    "readinessProbe.enabled "        = var.readinessProbe_enabled ,
+    "readinessProbe.initialDelaySeconds" =  var.readinessProbe_initialDelaySeconds,
+    "readinessProbe.periodSeconds" =   var.readinessProbe_periodSeconds,
+    "readinessProbe.timeoutSeconds" =  var.readinessProbe_timeoutSeconds,
+    "readinessProbe.failureThreshold" =  var.readinessProbe_failureThreshold,
+    "readinessProbe.successThreshold" =  var.readinessProbe_successThreshold,
+    "extraVolumes" = var.extraVolumes,
+    "extraVolumeMounts" = var.extraVolumeMounts,
+    "annotationFilter" = var.annotationFilter,
+    "labelFilter" = var.labelFilter,
+    "dryRun" = var.dryRun,
+    "logLevel" = var.logLevel,
+    "logFormat" = var.logFormat,
+    "schedulerName" = var.schedulerName,
+    "replicaCount" = var.replicaCount
     },
     {
       for i, zone in concat(var.hostedzones, data.aws_route53_zone.main.*.name) :

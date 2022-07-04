@@ -55,7 +55,7 @@ variable "cluster_name" {
 variable "chart_version" {
   type        = string
   description = "A Helm Chart version"
-  default     = "3.4.1"
+  default     = "6.5.6"
 }
 
 variable "tags" {
@@ -68,4 +68,130 @@ variable "vpc_id" {
   type        = string
   default     = null
   description = "An ID of the existing AWS VPC"
+}
+
+variable "extraVolumes" {
+  type        = list(string)
+  description = "	A list of volumes to be added to the pod"
+  default     = []
+}
+
+variable "extraVolumeMounts" {
+  type        = list(string)
+  description = "A list of volume mounts to be added to the pod"
+  default     = []
+}
+
+variable "livenessProbe_enabled" {
+  type        = bool
+  description = "Enable livenessProbe"
+  default     = true
+}
+
+variable "livenessProbe_initialDelaySeconds" {
+  type        = number
+  description = "Initial delay seconds for livenessProbe"
+  default     = 10
+}
+
+variable "livenessProbe_periodSeconds" {
+  type        = number
+  description = "Period seconds for livenessProbe"
+  default     = 10
+}
+
+variable "livenessProbe_timeoutSeconds" {
+  type        = number
+  description = "Timeout seconds for livenessProbe"
+  default     = 5
+}
+
+variable "livenessProbe_failureThreshold" {
+  type        = number
+  description = "Failure threshold for livenessProbe"
+  default     = 2
+}
+
+variable "livenessProbe_successThreshold" {
+  type        = number
+  description = "Failure threshold for livenessProbe"
+  default     = 1
+}
+
+variable "readinessProbe_enabled" {
+  type        = bool
+  description = "Enable readinessProbe"
+  default     = true
+}
+
+variable "readinessProbe_initialDelaySeconds" {
+  type        = number
+  description = "Initial delay seconds for readinessProbe"
+  default     = 5
+}
+
+variable "readinessProbe_periodSeconds" {
+  type        = number
+  description = "Period seconds for readinessProbe"
+  default     = 10
+}
+
+variable "readinessProbe_timeoutSeconds" {
+  type        = number
+  description = "Timeout seconds for readinessProbe"
+  default     = 5
+}
+
+variable "readinessProbe_failureThreshold" {
+  type        = number
+  description = "Failure threshold for readinessProbe"
+  default     = 6
+}
+
+variable "readinessProbe_successThreshold" {
+  type        = number
+  description = "Failure threshold for readinessProbe"
+  default     = 1
+}
+
+variable "annotationFilter" {
+  type        = string
+  description = "Filter sources managed by external-dns via annotation using label selector"
+  default     = ""
+}
+
+variable "labelFilter" {
+  type        = string
+  description = "Select sources managed by external-dns using label selector"
+  default     = ""
+}
+
+variable "dryRun" {
+  type        = bool
+  description = "When enabled, prints DNS record changes rather than actually performing them"
+  default     = false
+}
+
+variable "logLevel" {
+  type        = string
+  description = "Verbosity of the logs (options: panic, debug, info, warning, error, fatal, trace)"
+  default     = "info"
+}
+
+variable "logFormat" {
+  type        = string
+  description = "Which format to output logs in (options: text, json)"
+  default     = "text"
+}
+
+variable "schedulerName" {
+  type        = string
+  description = "Alternative scheduler"
+  default     = ""
+}
+
+variable "replicaCount" {
+  type        = number
+  description = "Alternative scheduler"
+  default     = 1
 }
