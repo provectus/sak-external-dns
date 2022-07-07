@@ -70,17 +70,6 @@ variable "vpc_id" {
   description = "An ID of the existing AWS VPC"
 }
 
-# variable "extraVolumes" {
-#   type        = list(string)
-#   description = "	A list of volumes to be added to the pod"
-#   default     = []
-# }
-
-# variable "extraVolumeMounts" {
-#   type        = list(string)
-#   description = "A list of volume mounts to be added to the pod"
-#   default     = []
-# }
 
 variable "livenessProbe_enabled" {
   type        = bool
@@ -154,17 +143,7 @@ variable "readinessProbe_successThreshold" {
   default     = 1
 }
 
-variable "annotationFilter" {
-  type        = string
-  description = "Filter sources managed by external-dns via annotation using label selector"
-  default     = ""
-}
 
-variable "labelFilter" {
-  type        = string
-  description = "Select sources managed by external-dns using label selector"
-  default     = ""
-}
 
 variable "dryRun" {
   type        = bool
@@ -182,12 +161,6 @@ variable "logFormat" {
   type        = string
   description = "Which format to output logs in (options: text, json)"
   default     = "text"
-}
-
-variable "schedulerName" {
-  type        = string
-  description = "Alternative scheduler"
-  default     = ""
 }
 
 variable "replicaCount" {
