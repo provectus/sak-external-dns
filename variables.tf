@@ -165,6 +165,6 @@ variable "logFormat" {
 
 variable "replicaCount" {
   type        = number
-  description = "Alternative scheduler"
+  description = "Desired number of ExternalDNS replicas"
   default     = 1
 }
