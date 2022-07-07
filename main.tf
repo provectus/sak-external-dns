@@ -162,14 +162,9 @@ locals {
     "readinessProbe.timeoutSeconds" =  var.readinessProbe_timeoutSeconds,
     "readinessProbe.failureThreshold" =  var.readinessProbe_failureThreshold,
     "readinessProbe.successThreshold" =  var.readinessProbe_successThreshold,
-    # "extraVolumes" = var.extraVolumes,
-    # "extraVolumeMounts" = var.extraVolumeMounts,
-    # "annotationFilter" = var.annotationFilter,
-    # "labelFilter" = var.labelFilter,
     "dryRun" = var.dryRun,
     "logLevel" = var.logLevel,
     "logFormat" = var.logFormat,
-    # "schedulerName" = var.schedulerName,
     "replicaCount" = var.replicaCount
     },
     {
