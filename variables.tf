@@ -70,17 +70,17 @@ variable "vpc_id" {
   description = "An ID of the existing AWS VPC"
 }
 
-variable "extraVolumes" {
-  type        = list(string)
-  description = "	A list of volumes to be added to the pod"
-  default     = []
-}
+# variable "extraVolumes" {
+#   type        = list(string)
+#   description = "	A list of volumes to be added to the pod"
+#   default     = []
+# }
 
-variable "extraVolumeMounts" {
-  type        = list(string)
-  description = "A list of volume mounts to be added to the pod"
-  default     = []
-}
+# variable "extraVolumeMounts" {
+#   type        = list(string)
+#   description = "A list of volume mounts to be added to the pod"
+#   default     = []
+# }
 
 variable "livenessProbe_enabled" {
   type        = bool
