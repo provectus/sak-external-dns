@@ -164,12 +164,12 @@ locals {
     "readinessProbe.successThreshold" =  var.readinessProbe_successThreshold,
     # "extraVolumes" = var.extraVolumes,
     # "extraVolumeMounts" = var.extraVolumeMounts,
-    "annotationFilter" = var.annotationFilter,
-    "labelFilter" = var.labelFilter,
+    # "annotationFilter" = var.annotationFilter,
+    # "labelFilter" = var.labelFilter,
     "dryRun" = var.dryRun,
     "logLevel" = var.logLevel,
     "logFormat" = var.logFormat,
-    "schedulerName" = var.schedulerName,
+    # "schedulerName" = var.schedulerName,
     "replicaCount" = var.replicaCount
     },
     {
