@@ -53,7 +53,7 @@ jobs:
 
       - name: tfsec
         uses: reviewdog/action-tfsec@master 
-    test-check:
+  test-check:
     name: tfsec (github-check)
     runs-on: ubuntu-latest
 
