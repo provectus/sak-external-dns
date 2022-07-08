@@ -60,7 +60,6 @@ jobs:
           github_token: ${{ secrets.github_token }}
           reporter: github-check
           level: info
-          working_directory: testdata
 
       # The check is expected to fail on the test data
       - name: Check return codes
@@ -95,7 +94,6 @@ jobs:
           github_token: ${{ secrets.github_token }}
           reporter: github-pr-check
           level: info
-          working_directory: testdata
 
       # The check is expected to fail on the test data
       - name: Check return codes
@@ -130,7 +128,6 @@ jobs:
           github_token: ${{ secrets.github_token }}
           reporter: github-pr-review
           level: info
-          working_directory: testdata
 
       # The check is expected to fail on the test data
       #  but for forked PRs reviewdog will just output
