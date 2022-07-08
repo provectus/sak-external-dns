@@ -1,5 +1,8 @@
 name: reviewdog
 on:
+  push:
+    branches:
+      - check_sak_modules_with_tfsec
   pull_request:
     paths:
     - '**.tf'
