@@ -18,7 +18,7 @@ jobs:
           with:
             soft_fail: true
 
-  test-pr-check:
+  tfsec-pr-check:
     name: tfsec (github-pr-check)
     runs-on: ubuntu-latest
 
