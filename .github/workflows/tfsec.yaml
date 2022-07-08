@@ -21,7 +21,7 @@ jobs:
         - name: Check return codes
           if: success() || failure ()
           run: |
-            tfsec_return="${{ steps.test.outputs.tfsec-return-code }}"
+            tfsec_return="${{ steps }}"
             if [[ "$tfsec_return" -eq 1 ]]; then
               echo "{tfsec_return}"
             else
