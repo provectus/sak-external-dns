@@ -67,7 +67,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - uses: ./
+      - uses: reviewdog/action-tfsec@master
         continue-on-error: true
         id: test
       # The check is expected to fail on the test data
