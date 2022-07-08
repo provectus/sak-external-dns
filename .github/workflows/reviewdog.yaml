@@ -47,13 +47,13 @@ jobs:
           level: info
           flags: "--module" # Optional. Add custom tflint flags
   tfsec:
-      name: runner / tfsec
+      name: runner /tfsec
       runs-on: ubuntu-latest
 
       steps:
         - name: Clone repo
           uses: actions/checkout@master
         - name: tfsec
-          uses: reviewdog/tfsec-action@v1.0.0
+          uses: aquasecurity/tfsec-action@v1.0.0
           with:
             soft_fail: true
