@@ -45,15 +45,5 @@ jobs:
           fail_on_error: "true" # Optional. Fail action if errors are found
           filter_mode: "nofilter" # Optional. Check all files, not just the diff
           level: info
-          flags: "--module" # Optional. Add custom tflint flags
-  tfsec:
-    name: tfsec report
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Clone repo
-        uses: actions/checkout@master
-
-      - name: tfsec
-        uses: reviewdog/action-tfsec@master   
+          flags: "--module" # Optional. Add custom tflint flags 
       
