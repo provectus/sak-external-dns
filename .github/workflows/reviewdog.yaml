@@ -1,5 +1,8 @@
 name: reviewdog
 on:
+  push:
+    branches:
+      - master
   pull_request:
     types: [opened, reopened]
     paths:
@@ -8,6 +11,10 @@ on:
     - '**.tfvars.json'
 env:
   TERRAFORM_VERSION: "1.0.6"
+
+defaults:
+  run:
+    shell: bash
 
 jobs:
 
@@ -55,3 +62,4 @@ jobs:
           uses: aquasecurity/tfsec-action@v1.0.0
           with:
             soft_fail: true
+
