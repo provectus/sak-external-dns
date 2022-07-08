@@ -55,7 +55,7 @@ variable "cluster_name" {
 variable "chart_version" {
   type        = string
   description = "A Helm Chart version"
-  default     = "3.4.1"
+  default     = "6.5.6"
 }
 
 variable "tags" {
