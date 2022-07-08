@@ -53,7 +53,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - uses: ./.github
+      - uses: ./.github/workflows
         continue-on-error: true
         id: test
         with:
