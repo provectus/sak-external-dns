@@ -22,11 +22,10 @@ jobs:
           if: success() || failure ()
           run: |
             tfsec_return="${{ steps.test.outputs.tfsec-return-code }}"
-            reviewdog_return="${{ steps.test.outputs.reviewdog-return-code }}"
             if [[ "$tfsec_return" -eq 1 ]]; then
-              echo "tfsec correctly returned failure ${tfsec_return}"
+              echo "{tfsec_return}"
             else
-              echo "tfsec returned ${tfsec_return}, expected '1'. Failing..."
+              echo "${tfsec_return}"
               exit 1
             fi
 
