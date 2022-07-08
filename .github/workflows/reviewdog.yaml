@@ -55,7 +55,7 @@ jobs:
         uses: actions/checkout@master
 
       - name: tfsec
-        uses: tfsec/tfsec-sarif-action@main
+        uses: reviewdog/action-tfsec@master
         with:
           working_directory: sak-external-dns     
       
