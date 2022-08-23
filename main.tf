@@ -101,11 +101,6 @@ resource "aws_iam_policy" "this" {
       Version = "2012-10-17",
       Statement = [
         {
-          Effect   = "Allow",
-          Action   = "route53:GetChange",
-          Resource = "arn:aws:route53:::change/*"
-        },
-        {
           Effect = "Allow",
           Action = [
             "route53:ChangeResourceRecordSets",
