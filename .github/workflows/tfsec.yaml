@@ -1,0 +1,20 @@
+name: tfsec
+on:
+  pull_request:
+    types: [opened, reopened]
+env:
+  TERRAFORM_VERSION: "1.0.6"
+
+jobs:
+  tfsec:
+      name: runner /tfsec
+      runs-on: ubuntu-latest
+
+      steps:
+        - name: Clone repo
+          uses: actions/checkout@master
+        - name: tfsec
+          uses: aquasecurity/tfsec-action@v1.0.0
+          id  : test
+       
+
