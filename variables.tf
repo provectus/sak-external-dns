@@ -69,3 +69,7 @@ variable "vpc_id" {
   default     = null
   description = "An ID of the existing AWS VPC"
 }
+
+variable "create_zone" {
+  default = true
+}
