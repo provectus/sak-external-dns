@@ -71,5 +71,7 @@ variable "vpc_id" {
 }
 
 variable "create_zone" {
-  default = true
+  type        = bool
+  default     = true
+  description = "Set true or false to create new zone or use existing one"
 }
