@@ -1,13 +1,30 @@
 # External DNS
 ## Example
+### Create public or private hostedzone
+
 ``` hcl
 module external_dns {
   source       = "github.com/provectus/sak-external-dns"
   cluster_name = module.eks.cluster_id
   argocd       = module.argocd.state
-  hostedzones  = ["your.hosted.zones"]     # Provide your hosted zones (description in Input section)
+  hostedzones  = ["your.hosted.zones"]
+  aws_private  = true
 }
 ```
+- aws_private is a boolean variable accepting inputs: true or false. Meaning it will either create a private or public hostedzone
+
+### Create DNS using an existing hostedzone
+
+``` hcl
+module external_dns {
+  source       = "github.com/provectus/sak-external-dns"
+  cluster_name = module.eks.cluster_id
+  argocd       = module.argocd.state
+  hostedzones  = ["your.hosted.zones"]
+  mainzoneid   = "your-existing-zone-id"
+}
+```
+
 ## Requirements
 
 ```
