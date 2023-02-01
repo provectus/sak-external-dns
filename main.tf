@@ -61,7 +61,7 @@ resource "aws_route53_record" "ns" {
 }
 
 resource "aws_route53_zone" "public" {
-  count = var.aws_private == false && var.mainzoneid == "" ? length(var.hostedzones) : 0
+  count = var.aws_private != true ? length(var.hostedzones) : 0
   name  = element(var.hostedzones, count.index)
 
   tags          = var.tags
@@ -69,7 +69,7 @@ resource "aws_route53_zone" "public" {
 }
 
 resource "aws_route53_zone" "private" {
-  count = var.aws_private == true && var.mainzoneid == "" ? length(var.hostedzones) : 0
+  count = var.aws_private == true ? length(var.hostedzones) : 0
   name  = element(var.hostedzones, count.index)
   vpc {
     vpc_id = var.vpc_id
