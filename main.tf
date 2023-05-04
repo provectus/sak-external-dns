@@ -182,8 +182,8 @@ locals {
           "selfHeal" = true
         }
       }
-      "syncOptions" = {
-        "createNamespace" = true
+      "SyncOptions" = {
+        "CreateNamespace" = true
       }
     }
   }
