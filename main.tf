@@ -4,16 +4,9 @@ data "aws_eks_cluster" "this" {
 
 data "aws_region" "current" {}
 
-resource "kubernetes_namespace" "this" {
-  count = var.namespace == "kube-system" ? 0 : 1
-  metadata {
-    name = var.namespace_name
-  }
-}
-
 locals {
   argocd_enabled = length(var.argocd) > 0 ? 1 : 0
-  namespace      = coalescelist(kubernetes_namespace.this, [{ "metadata" = [{ "name" = var.namespace }] }])[0].metadata[0].name
+  namespace      = var.namespace
 }
 
 resource "helm_release" "this" {
@@ -187,6 +180,9 @@ locals {
         "automated" = {
           "prune"    = true
           "selfHeal" = true
+        }
+        "SyncOptions" = {
+          "CreateNamespace" = true
         }
       }
     }
