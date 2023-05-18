@@ -1,4 +1,12 @@
-# External DNS
+# Swiss Army Kube External DNS
+
+This module was created to deploy external DNS within Swiss Army Kube cluster with ease and simplicity.
+Check out main repo of Swiss Army Kube for more information about the project in general.
+
+**[Swiss Army Kube](https://github.com/provectus/swiss-army-kube)**
+|
+**[Contributing Guide](https://github.com/provectus/swiss-army-kube/blob/master/CONTRIBUTING.md)**
+
 ## Example
 ### Create public or private hostedzone
 
