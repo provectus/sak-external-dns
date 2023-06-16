@@ -63,3 +63,102 @@ variable "vpc_id" {
   default     = null
   description = "An ID of the existing AWS VPC"
 }
+
+
+variable "livenessProbe_enabled" {
+  type        = bool
+  description = "Enable livenessProbe"
+  default     = true
+}
+
+variable "livenessProbe_initialDelaySeconds" {
+  type        = number
+  description = "Initial delay seconds for livenessProbe"
+  default     = 10
+}
+
+variable "livenessProbe_periodSeconds" {
+  type        = number
+  description = "Period seconds for livenessProbe"
+  default     = 10
+}
+
+variable "livenessProbe_timeoutSeconds" {
+  type        = number
+  description = "Timeout seconds for livenessProbe"
+  default     = 5
+}
+
+variable "livenessProbe_failureThreshold" {
+  type        = number
+  description = "Failure threshold for livenessProbe"
+  default     = 2
+}
+
+variable "livenessProbe_successThreshold" {
+  type        = number
+  description = "Failure threshold for livenessProbe"
+  default     = 1
+}
+
+variable "readinessProbe_enabled" {
+  type        = bool
+  description = "Enable readinessProbe"
+  default     = true
+}
+
+variable "readinessProbe_initialDelaySeconds" {
+  type        = number
+  description = "Initial delay seconds for readinessProbe"
+  default     = 5
+}
+
+variable "readinessProbe_periodSeconds" {
+  type        = number
+  description = "Period seconds for readinessProbe"
+  default     = 10
+}
+
+variable "readinessProbe_timeoutSeconds" {
+  type        = number
+  description = "Timeout seconds for readinessProbe"
+  default     = 5
+}
+
+variable "readinessProbe_failureThreshold" {
+  type        = number
+  description = "Failure threshold for readinessProbe"
+  default     = 6
+}
+
+variable "readinessProbe_successThreshold" {
+  type        = number
+  description = "Failure threshold for readinessProbe"
+  default     = 1
+}
+
+
+
+variable "dryRun" {
+  type        = bool
+  description = "When enabled, prints DNS record changes rather than actually performing them"
+  default     = false
+}
+
+variable "logLevel" {
+  type        = string
+  description = "Verbosity of the logs (options: panic, debug, info, warning, error, fatal, trace)"
+  default     = "info"
+}
+
+variable "logFormat" {
+  type        = string
+  description = "Which format to output logs in (options: text, json)"
+  default     = "text"
+}
+
+variable "replicaCount" {
+  type        = number
+  description = "Desired number of ExternalDNS replicas"
+  default     = 1
+}
